@@ -1,0 +1,99 @@
+{
+  "manifest_version": 3,
+  "name": "RO Module",
+  "version": "0.1.0",
+  "description": "ラグナロクオンライン公式サイトと公式ツールで、アイテム名・エンチャント名にマウスを乗せると内容をすぐ表示します。非公式ファンツール。",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://rotool.gungho.jp/*",
+    "https://ragnarokonline.gungho.jp/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ragnarokonline.gungho.jp/*",
+        "https://rotool.gungho.jp/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://ragnarokonline.gungho.jp/*",
+        "https://rotool.gungho.jp/*",
+        "https://member.gungho.jp/*",
+        "https://isonya-tools.web.app/*",
+        "https://ro-blog.livedoor.biz/*"
+      ],
+      "js": [
+        "links.js",
+        "bar.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://ragnarokonline.gungho.jp/cms/news*"
+      ],
+      "js": [
+        "banners.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://member.gungho.jp/front/member/webgs/*"
+      ],
+      "js": [
+        "member.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/dict.json"
+      ],
+      "matches": [
+        "https://ragnarokonline.gungho.jp/*",
+        "https://rotool.gungho.jp/*"
+      ]
+    },
+    {
+      "resources": [
+        "icons/md.png",
+        "icons/tools.png",
+        "icons/game.png",
+        "fonts/title.woff2"
+      ],
+      "matches": [
+        "https://ragnarokonline.gungho.jp/*",
+        "https://rotool.gungho.jp/*",
+        "https://member.gungho.jp/*",
+        "https://isonya-tools.web.app/*",
+        "https://ro-blog.livedoor.biz/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "RO Module",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

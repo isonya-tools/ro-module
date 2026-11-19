@@ -1,0 +1,12 @@
+const m=chrome.runtime.getManifest();
+document.getElementById('nm').textContent=m.name+' v'+m.version;
+const on=document.getElementById('on');
+chrome.storage.local.get({enabled:true}).then(v=>{on.checked=v.enabled});
+on.addEventListener('change',()=>chrome.storage.local.set({enabled:on.checked}));
+const bar=document.getElementById('bar');
+chrome.storage.local.get({bar:true}).then(v=>{bar.checked=v.bar});
+bar.addEventListener('change',()=>chrome.storage.local.set({bar:bar.checked}));
+const bn=document.getElementById('bn');
+chrome.storage.local.get({banners:true}).then(v=>{bn.checked=v.banners});
+bn.addEventListener('change',()=>chrome.storage.local.set({banners:bn.checked}));
+fetch(chrome.runtime.getURL('data/dict.json')).then(r=>r.json()).then(j=>{document.getElementById('dt').textContent='データ日付 '+j.date+' / '+Object.keys(j.d).length+'件'}).catch(()=>{});
