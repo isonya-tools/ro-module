@@ -17,7 +17,7 @@ const abs = u => u.startsWith('http') ? u : BASE + u;
 const H = 52;
 const U = p => chrome.runtime.getURL(p);
 const host = document.createElement('div');
-host.style.cssText = 'all:initial;position:fixed;z-index:2147483646;left:0;top:0;width:100%';
+host.style.cssText = 'all:initial;position:fixed;z-index:9000;left:0;top:0;width:100%';
 const root = host.attachShadow({ mode: 'closed' });
 const others = window.__RO_LOOPE_LINKS || [];
 const CATS = [['md', 'メモリアルダンジョン'], ['other', 'その他']];   // 'old' は載せない
