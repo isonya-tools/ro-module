@@ -33,8 +33,8 @@ async function run() {
   for (const b of items) {
     const a = document.createElement('a'); a.href = abs(b.url); a.target = '_blank'; a.rel = 'noopener';
     const im = document.createElement('img'); im.alt = b.bannerAltText || b.title || ''; im.title = im.alt;
-    // 元画像の半分のサイズで固定（公式トップのスライダーと同じ）
-    im.addEventListener('load', () => { im.style.width = Math.round(im.naturalWidth / 2) + 'px'; });
+    // 元画像の40%（従来の半分サイズの80%）で固定
+    im.addEventListener('load', () => { im.style.width = Math.round(im.naturalWidth * 0.4) + 'px'; });
     im.src = abs(b.bannerImage);
     a.appendChild(im); grid.appendChild(a);
   }
