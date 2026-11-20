@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "RO Module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ラグナロクオンライン公式サイトと公式ツールで、アイテム名・エンチャント名にマウスを乗せると内容をすぐ表示します。非公式ファンツール。",
   "icons": {
     "16": "icons/16.png",
